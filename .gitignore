@@ -1,0 +1,36 @@
+# Directorio del entorno virtual y dependencias de Composer
+/vendor/
+composer.lock
+
+# Configuración de entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos de caché y logs
+/cache/
+/logs/
+*.log
+
+# Configuración del IDE y del sistema operativo
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Archivos generados por Composer
+composer.phar
+
+# Archivos de sesión de PHP
+sess_*
+
+# Base de datos SQLite (si usas SQLite)
+*.sqlite
+*.sqlite3
+database.sqlite
+
+# Caché de Composer
+/vendor/composer/
+
+# Archivos temporales de Slim
+/tmp/
