@@ -9,3 +9,32 @@ get {
   body: none
   auth: none
 }
+
+docs {
+  ## GET /actividades
+  content-type: application/json
+   
+  Response:
+  ```
+  [
+    {
+      "id_agenda": 1,
+      "fecha": "2023-10-01",
+      "asunto": "Reunión",
+      "actividad": "Planificación del proyecto"
+    },
+    {
+      "id_agenda": 2,
+      "fecha": "2023-10-02",
+      "asunto": "Presentación",
+      "actividad": "Exposición de resultados"
+    },
+    {
+      "id_agenda": 3,
+      "fecha": "2025-02-14",
+      "asunto": "Reunión importante",
+      "actividad": "Discusión de avances en el proyecto"
+    }
+  ]
+  ```
+}

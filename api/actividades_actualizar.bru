@@ -16,9 +16,38 @@ headers {
 
 body:json {
   {
-      "fecha": "",
+      "fecha": "2025-02-14",
+      "asunto": "Reunión",
+      "actividad": "Informe de avances en el proyecto"
+  }
+  
+}
+
+docs {
+  ## POST /actividades
+  content-type: application/json
+   
+  Body:
+  ```json
+  {
+      "fecha": "3",
       "asunto": "Reunión importante",
       "actividad": "Discusión de avances en el proyecto"
   }
+  ```
   
+  Success:
+  ```json
+  {
+    "success": true
+  }
+  ```
+  
+  Error:
+  reponse
+  ```json
+  {
+    "error": "Datos incompletos"
+  }
+  ```
 }
