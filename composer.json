@@ -6,7 +6,8 @@
     },
     "autoload": {
     "psr-4": {
-        "App\\Database\\": "src/db/"
+        "App\\Database\\": "src/db/",
+        "App\\Models\\": "src/models/"
     }
     }
 }

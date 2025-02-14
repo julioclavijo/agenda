@@ -1,28 +1,34 @@
 <?php
 namespace App\Database;
 
+use PDO;
+use PDOException;
+use Dotenv\Dotenv;
+
 class Database {
-    private $host;
-    private $db_name;
-    private $username;
-    private $password;
-    public $conn;
+    private $conn;
 
     public function __construct() {
-        $this->host = getenv('DB_HOST');
-        $this->db_name = getenv('DB_NAME');
-        $this->username = getenv('DB_USER');
-        $this->password = getenv('DB_PASS');
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
+        $dotenv->load();
+
+        try {
+            $this->conn = new PDO(
+                "mysql:host=" . $_ENV['DB_HOST'] . ";dbname=" . $_ENV['DB_NAME'] . ";charset=utf8mb4",
+                $_ENV['DB_USER'],
+                $_ENV['DB_PASS'],
+                [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4"
+                ]
+            );
+        } catch (PDOException $e) {
+            die("Error de conexión: " . $e->getMessage());
+        }
     }
 
     public function getConnection() {
-        $this->conn = null;
-        try {
-            $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
-            $this->conn->exec("set names utf8");
-        } catch (PDOException $exception) {
-            echo "Connection error: " . $exception->getMessage();
-        }
         return $this->conn;
     }
 }
