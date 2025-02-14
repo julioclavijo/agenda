@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "agenda",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
