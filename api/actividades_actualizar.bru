@@ -6,6 +6,19 @@ meta {
 
 post {
   url: http://localhost:8080/actividades
-  body: none
+  body: json
   auth: none
+}
+
+headers {
+  content-type: application/json
+}
+
+body:json {
+  {
+      "fecha": "",
+      "asunto": "Reunión importante",
+      "actividad": "Discusión de avances en el proyecto"
+  }
+  
 }
