@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: http://localhost:8080/actividades
+  url: {{host}}/actividades
   body: json
   auth: none
 }
@@ -16,7 +16,7 @@ headers {
 
 body:json {
   {
-      "fecha": "2025-02-14",
+      "fecha": "2025-02-15",
       "asunto": "Reunión",
       "actividad": "Informe de avances en el proyecto"
   }
@@ -26,8 +26,9 @@ body:json {
 docs {
   ## POST /actividades
   content-type: application/json
-   
+  
   Body:
+  Recibe 3 parametros
   ```json
   {
       "fecha": "3",
@@ -36,6 +37,7 @@ docs {
   }
   ```
   
+  ### Response
   Success:
   ```json
   {
@@ -44,7 +46,6 @@ docs {
   ```
   
   Error:
-  reponse
   ```json
   {
     "error": "Datos incompletos"
